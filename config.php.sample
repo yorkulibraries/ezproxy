@@ -1,0 +1,22 @@
+<?php
+
+$enable_debug_log = false;
+
+$recaptcha_site_key = '123';
+$recaptcha_secret_key = '123';
+
+$proxy_url = 'https://ezproxy.library.yorku.ca';
+$proxy_secret = '123';
+
+$api_key = '123';
+$api_url = 'https://api-ca.hosted.exlibrisgroup.com/almaws/v1';
+
+$allowed_user_groups = [
+  'UNDERGRAD', 'GRADUATE', 'GRADUATEX', 'FACULTY', 'FACULTYX',
+  'STAFF', 'LAW', 'LAWGRAD', 'LAWRESEARC', 'LIBRARYUSE', 'RESEARCH', 'SCS'
+];
+$allowed_user_categories = [
+  'CONTIN-ED', 'EDUCATION', 'EXECLC', 'FOUNDATION', 'REMOTE', 'YUELI', 'SCS'
+];
+
+?>
