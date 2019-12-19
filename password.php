@@ -18,9 +18,16 @@ if (isset($_POST['barcode']) && !empty($_POST['barcode'])
       if ($user->primary_id == $id) {
         $is_york_patron = is_york_patron($user);
         if ($is_york_patron && check_access($user)) {
-          $logger->debug("User $id allowed access");
+          $primary_id = $user->primary_id;
+          $logger->debug("User $primary_id / $univ_id allowed access");
           $dest_url = $_REQUEST['qurl'];
-          $redirect_url = ezproxy_ticket_login_url($proxy_url, $proxy_secret, $user->primary_id) . '&url=' . $dest_url;
+          if (is_ebl($dest_url)) {
+            $redirect_url = ebl_connect_url($dest_url, $_GET['extendedid'], $_GET['target'], $user->primary_id, $ebl_secret);
+            $logger->debug("EBL $redirect_url");
+          } else {
+            $redirect_url = ezproxy_ticket_login_url($proxy_url, $proxy_secret, $user->primary_id) . '&url=' . $dest_url;
+            $logger->debug("EZProxy $redirect_url");
+          }
           redirect_terms_of_use($redirect_url);
           exit;
         } else {
