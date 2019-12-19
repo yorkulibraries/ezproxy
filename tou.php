@@ -38,9 +38,14 @@
         </div>
       </div>
 
-                <form class="simple_form form-signin" action="<?= $_REQUEST['dest']; ?>" method="post">
-                  <input type="submit" name="commit" value="I agree" class="btn btn btn-lg btn-primary btn-block" data-disable-with="I agree" />
-                </form>
+<br/>
+<div class="text-center">
+<a style="width:200px" href="<?= $_REQUEST['dest']; ?>" class="btn btn-success btn-lg">
+                    I agree
+                    </a>
+</div>
+<br/>
+
 
 
 

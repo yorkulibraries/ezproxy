@@ -28,12 +28,13 @@ if (isset($_POST['barcode']) && !empty($_POST['barcode'])
           if (!$is_york_patron) { 
             $logger->debug("User $id does NOT have Patron role");
           }
-          $errors[] = 'Access not allowed';
+          $errors[] = 'Access not allowed.';
         }
       } 
+    } else {
+      $logger->debug("Authentication failed: $pin is wrong for user $id");
+      $errors[] = 'Invalid Barcode and/or Password. If you have not reset your password, please enter your existing 4-digit PIN *twice*';
     }
-    $logger->debug("Authentication failed: $pin is wrong for user $id");
-    $errors[] = 'Wrong Barcode or Password';
   } else { 
     $logger->debug("recaptcha failed");
     $errors[] = 'reCAPTCHA failed';

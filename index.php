@@ -1,4 +1,28 @@
-<?php $dest_url = $_REQUEST['qurl']; ?>
+<?php 
+require_once(__DIR__.'/common.php');
+
+$dest_url = trim($_REQUEST['qurl']); 
+
+if (
+(strpos($dest_url, 'http://www.library.yorku.ca/e/resolver/') === 0)
+|| (strpos($dest_url, 'https://www.library.yorku.ca/e/resolver/') === 0)
+|| (strpos($dest_url, 'http://www.library.yorku.ca/eresolver/') === 0)
+|| (strpos($dest_url, 'https://www.library.yorku.ca/eresolver/') === 0)
+|| (strpos($dest_url, 'http://ezproxy.library.yorku.ca/login?url=') === 0)
+|| (strpos($dest_url, 'https://ezproxy.library.yorku.ca/login?url=') === 0)
+|| (strpos($dest_url, 'http://ebookcentral.proquest.com/lib/york/') === 0)
+|| (strpos($dest_url, 'https://ebookcentral.proquest.com/lib/york/') === 0)
+|| (strpos($dest_url, 'http://site.ebrary.com/lib/oculyork/docDetail.action?docID=') === 0)
+|| (strpos($dest_url, 'https://site.ebrary.com/lib/oculyork/docDetail.action?docID=') === 0)
+|| (strpos($dest_url, 'http://site.ebrary.com/lib/oculyork/Doc?id=') === 0)
+|| (strpos($dest_url, 'https://site.ebrary.com/lib/oculyork/Doc?id=') === 0)
+) {
+  $logger->debug("Passing through to $dest_url");
+  header("Location: $dest_url");
+  exit;
+}
+
+?>
 
 <?php include('template_top.php'); ?>
 
