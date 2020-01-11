@@ -10,6 +10,8 @@
   <?php foreach ($errors as $e) { ?>
     <p class="text-danger"><?php echo $e; ?></p>
   <?php } ?>
+
+<p><a href="https://www.library.yorku.ca/web/ask-services/borrow-renew-return/your-library-card/">Find more information on how to obtain a Library Card & Account</a></p>
               </div>
             </div>
           </div>

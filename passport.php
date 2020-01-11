@@ -31,7 +31,7 @@ if (preg_match('/[0-9]+/', $_SERVER['HTTP_PYORK_CYIN'])) {
       $cyin = $_SERVER['HTTP_PYORK_CYIN'];
       $pyork_user = $_SERVER['HTTP_PYORK_USER'];
       $logger->debug("No user matching UNIV_ID $cyin for $pyork_user");
-      $errors[] = "No user matching UNIV_ID $cyin for $pyork_user";
+      $errors[] = "According to our records, there is no library account for $pyork_user.";
   }
 } else {
   $logger->debug("Bad CYIN (hint: check mod auth_pyork config): " . $_SERVER['HTTP_PYORK_CYIN']);
