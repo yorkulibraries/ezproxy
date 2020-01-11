@@ -9,7 +9,7 @@
           <div class="mt-4 card shadow-sm">
             <div class="card-body">
               <div class="text-center mt-5">
-                <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+                <h1 class="h3 mb-3 font-weight-normal text-center">Please Login</h1>
 
   <?php foreach ($errors as $e) { ?>
     <p class="text-danger"><?php echo $e; ?></p>

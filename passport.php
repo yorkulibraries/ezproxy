@@ -1,6 +1,8 @@
 <?php
 require_once(__DIR__.'/common.php');
 
+$errors = array();
+
 if (preg_match('/[0-9]+/', $_SERVER['HTTP_PYORK_CYIN'])) {
 
   $user = alma_user($_SERVER['HTTP_PYORK_CYIN']);
@@ -23,12 +25,20 @@ if (preg_match('/[0-9]+/', $_SERVER['HTTP_PYORK_CYIN'])) {
       exit;
     } else {
       $logger->debug("User $id NOT allowed access");
+      $errors[] = "User $id NOT allowed access";
     }
+  } else {
+      $cyin = $_SERVER['HTTP_PYORK_CYIN'];
+      $pyork_user = $_SERVER['HTTP_PYORK_USER'];
+      $logger->debug("No user matching UNIV_ID $cyin for $pyork_user");
+      $errors[] = "No user matching UNIV_ID $cyin for $pyork_user";
   }
 } else {
   $logger->debug("Bad CYIN (hint: check mod auth_pyork config): " . $_SERVER['HTTP_PYORK_CYIN']);
+  $errors[] = "Server error, invalid CYIN.";
 } 
 
+show_error($errors);
 
 ?>
 

@@ -105,6 +105,11 @@ function show_form($recaptcha_site_key, $errors) {
   exit;
 }
 
+function show_error($errors) {
+  include(__DIR__.'/error.php');
+  exit;
+}
+
 function redirect_terms_of_use($url) {
   $location = 'tou?dest=' . urlencode($url);
   header("Location: $location");

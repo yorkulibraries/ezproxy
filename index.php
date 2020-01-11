@@ -16,6 +16,7 @@ if (
 || (strpos($dest_url, 'https://site.ebrary.com/lib/oculyork/docDetail.action?docID=') === 0)
 || (strpos($dest_url, 'http://site.ebrary.com/lib/oculyork/Doc?id=') === 0)
 || (strpos($dest_url, 'https://site.ebrary.com/lib/oculyork/Doc?id=') === 0)
+|| $_SERVER['REMOTE_ADDR'] == $ezproxy_ip
 ) {
   $logger->debug("Passing through to $dest_url");
   header("Location: $dest_url");

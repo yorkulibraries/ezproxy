@@ -47,7 +47,7 @@ if (isset($_POST['barcode']) && !empty($_POST['barcode'])
     $errors[] = 'reCAPTCHA failed';
   }
 } else {
-  $errors[] = 'Please enter barcode and password to sign in.';
+  $errors[] = 'Please enter barcode and password.';
 }
 
 show_form($recaptcha_site_key, $errors);
